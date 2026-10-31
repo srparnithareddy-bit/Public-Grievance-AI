@@ -109,11 +109,13 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start Server and initialize DB
-const startServer = async () => {
-  await connectDB();
-  await seedMongoIfEmpty();
+// Initialize DB (supports both standalone Node server and Serverless environments like Vercel)
+connectDB().then(() => seedMongoIfEmpty()).catch((err) => {
+  console.warn('DB initialization error:', err.message);
+});
 
+// Start Server when run directly
+const startServer = async () => {
   return app.listen(PORT, () => {
     console.log(`\n==================================================`);
     console.log(`🏛️  Public Grievance AI Assistant Full-Stack Server`);

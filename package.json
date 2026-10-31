@@ -2,12 +2,23 @@
   "name": "public-grievance-ai-assistant",
   "version": "1.0.0",
   "description": "Public Grievance AI Assistant (Problem ID: HACK-P438) - Full-Stack Hackathon Project",
+  "main": "backend/server.js",
   "scripts": {
-    "setup": "npm --prefix backend install && npm --prefix frontend install",
+    "setup": "npm install && npm --prefix backend install && npm --prefix frontend install",
+    "build": "npm --prefix frontend install && npm --prefix frontend run build",
+    "start": "node backend/server.js",
     "dev:backend": "npm --prefix backend run dev",
     "dev:frontend": "npm --prefix frontend run dev",
-    "dev": "node -e \"const { spawn } = require('child_process'); const b = spawn('npm', ['run', 'dev', '--prefix', 'backend'], { stdio: 'inherit', shell: true }); const f = spawn('npm', ['run', 'dev', '--prefix', 'frontend'], { stdio: 'inherit', shell: true }); process.on('SIGINT', () => { b.kill(); f.kill(); process.exit(); });\"",
-    "start": "npm --prefix backend start"
+    "dev": "node backend/server.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.1"
   },
   "keywords": [
     "grievance",

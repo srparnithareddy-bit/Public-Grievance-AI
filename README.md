@@ -3,6 +3,10 @@
 
 An AI-driven municipal grievance intake, automated triage, and transparent redressal platform. Built with a clean, modular full-stack architecture tailored for high readability and zero-friction execution.
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/srparnithareddy-bit/Public-Grievance-AI)
+&nbsp;&nbsp;
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/srparnithareddy-bit/Public-Grievance-AI)
+
 ---
 
 ## 📌 Executive Summary & Architecture

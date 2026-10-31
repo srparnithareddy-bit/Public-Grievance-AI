@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: public-grievance-ai
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: npm run setup && npm --prefix frontend run build
+    startCommand: node backend/server.js
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: GEMINI_API_KEY
+        value: YOUR_GEMINI_API_KEY_HERE
+      - key: GEMINI_MODEL
+        value: gemini-1.5-flash
+      - key: MONGO_URI
+        value: mongodb://127.0.0.1:27017/public_grievance_db

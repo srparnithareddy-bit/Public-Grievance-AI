@@ -114,7 +114,7 @@ const startServer = async () => {
   await connectDB();
   await seedMongoIfEmpty();
 
-  app.listen(PORT, () => {
+  return app.listen(PORT, () => {
     console.log(`\n==================================================`);
     console.log(`🏛️  Public Grievance AI Assistant Full-Stack Server`);
     console.log(`🌐 Live URL:        http://localhost:${PORT}`);
@@ -123,4 +123,9 @@ const startServer = async () => {
   });
 };
 
-startServer();
+if (require.main === module) {
+  startServer();
+}
+
+module.exports = app;
+module.exports.startServer = startServer;
